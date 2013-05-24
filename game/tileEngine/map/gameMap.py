@@ -45,7 +45,7 @@ class GameMap(object):
             self.updated = False
 
             self.mapSurface.blit(self.backgroundLayer.getSurface(), self.backgroundLayer.getSurface().get_rect())
-            self.mapSurface.blit(self.foregroundLayer.getSurface(), self.foregroundLayer.getSurface().get_rect())
+            #self.mapSurface.blit(self.foregroundLayer.getSurface(), self.foregroundLayer.getSurface().get_rect())
             self.mapSurface.convert()
 
     def getWidthInPixels(self):

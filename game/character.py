@@ -13,7 +13,7 @@ class Character(object):
         self.xPos = 0
         self.yPos = 0
     
-        self.speed = 1
+        self.speed = 200
         self.lookingDirection = DOWN
         self.characterClass = DEFAULT
         self.health = 100
@@ -33,13 +33,13 @@ class Character(object):
     
     def move(self, gameClient, direction):
         if direction == RIGHT:
-            self.xPos += (160 * gameClient.timer.get_frame_duration())
+            self.xPos += (self.speed * gameClient.timer.get_frame_duration())
         elif direction == LEFT:
-            self.xPos -= (160 * gameClient.timer.get_frame_duration())
+            self.xPos -= (self.speed * gameClient.timer.get_frame_duration())
         elif direction == UP:
-            self.yPos -= (160 * gameClient.timer.get_frame_duration())
+            self.yPos -= (self.speed * gameClient.timer.get_frame_duration())
         elif direction == DOWN:
-            self.yPos += (160 * gameClient.timer.get_frame_duration())
+            self.yPos += (self.speed * gameClient.timer.get_frame_duration())
         if self.xPos < 0:
             self.xPos = 0
         if self.yPos < 0:

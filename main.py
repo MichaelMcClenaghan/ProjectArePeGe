@@ -38,8 +38,7 @@ class GameClient(object):
     def run(self):
         self.camera = Camera(self)
 
-        self.gameMap = GameMap(self, 100, 100)
-        self.gameState = Surface(self.gameMap.mapSurface.get_size())
+        self.gameMap = GameMap(self, 200, 200)
         self.running = True
         self.characterManager = CharacterManager(self)
 
@@ -59,6 +58,7 @@ class GameClient(object):
 
         self.camera.centerOnPoint(self.characterManager.player.xPos, self.characterManager.player.yPos)        
         self.controlManager.run(self)
+        self.clock.tick()
         self.timer.tick()
     
     def draw(self, screen):
@@ -68,9 +68,8 @@ class GameClient(object):
 
             screen.fill(BLACK)
             self.characterManager.blitPlayer(self)
-            self.gameState.blit(self.gameMap.mapSurface, self.gameMap.mapSurface.get_rect())
-            self.gameState.blit(self.gameMap.spriteLayer.surface, self.gameMap.spriteLayer.surface.get_rect())
-            screen.blit(self.gameState, self.rect, self.camera.view)
+            screen.blit(self.gameMap.mapSurface, self.gameMap.mapSurface.get_rect(), self.camera.view)
+            screen.blit(self.gameMap.spriteLayer.surface, self.gameMap.spriteLayer.surface.get_rect(), self.camera.view)
 
 if __name__ == '__main__':
     gameClient = GameClient()
