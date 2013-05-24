@@ -36,10 +36,10 @@ class GameClient(object):
         self.running = False        
         
     def run(self):
-        self.windowManager.fullscreen()
+        #self.windowManager.fullscreen()
         self.camera = Camera(self)
 
-        self.gameMap = GameMap(self, 200, 200)
+        self.gameMap = GameMap(self, 50, 50)
         self.running = True
         self.characterManager = CharacterManager(self)
 
@@ -57,7 +57,7 @@ class GameClient(object):
         if not self.running:
             self.run()
 
-        self.camera.centerOnPoint(self.characterManager.player.xPos, self.characterManager.player.yPos)        
+        self.camera.updateView()       
         self.controlManager.run(self)
         self.clock.tick()
         self.timer.tick()

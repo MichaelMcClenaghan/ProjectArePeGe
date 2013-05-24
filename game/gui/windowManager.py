@@ -10,8 +10,8 @@ import pygame
 class WindowManager(object):
     def __init__(self):
 
-        self.width = 800
-        self.height = 600
+        self.width = 1920
+        self.height = 1080
         self.caption = "Project ArePeGe"
         
     def setCaption(self, caption):

@@ -9,6 +9,8 @@ from game.constants import *
 from game.character import *
 from game.characterManager import *
 from game.tileEngine.map.gameMap import *
+import random
+from math import *
 
 
 class ControlManager(object):
@@ -29,15 +31,18 @@ class ControlManager(object):
             gameClient.characterManager.player.move(gameClient, DOWN)
             
     def processKeys(self, gameClient, event):
+        print gameClient.clock.get_fps()
+
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_t:
-                gameClient.gameMap.foregroundLayer.getTile(5,6).setType
                 
-            elif event.key == pygame.K_o:
+            if event.key == pygame.K_o:
                 print gameClient.clock.get_fps()
 
+            elif event.key == pygame.K_SPACE:
+                gameClient.camera.mode = abs(gameClient.camera.mode-1)
+
             elif event.key == pygame.K_p:
-                gameClient.windowManager.fullscreen()
+                gameClient.gameMap.backgroundLayer.getTile(random.randint(0,20),random.randint(0,20)).setType('gravel')
                 
             elif event.key == pygame.K_w:
                 gameClient.controlManager.up = True
