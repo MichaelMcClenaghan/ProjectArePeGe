@@ -36,6 +36,7 @@ class GameClient(object):
         self.running = False        
         
     def run(self):
+        self.windowManager.fullscreen()
         self.camera = Camera(self)
 
         self.gameMap = GameMap(self, 200, 200)

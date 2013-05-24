@@ -21,7 +21,7 @@ def launch_pygame_window(width, height):
     '''
     pygame.init()
     pygame.display.init()
-    return pygame.display.set_mode((width, height), pygame.FULLSCREEN)
+    return pygame.display.set_mode((width, height), 0)
     
 
 def set_pygame_caption(caption):

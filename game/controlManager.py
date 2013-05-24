@@ -37,7 +37,7 @@ class ControlManager(object):
                 print gameClient.clock.get_fps()
 
             elif event.key == pygame.K_p:
-                gameClient.camera.centerOnPoint(0,0)
+                gameClient.windowManager.fullscreen()
                 
             elif event.key == pygame.K_w:
                 gameClient.controlManager.up = True
