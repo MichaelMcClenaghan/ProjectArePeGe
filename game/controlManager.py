@@ -8,7 +8,7 @@ Copyright (c) 2012 Micmac Creations. All rights reserved.
 from game.constants import *
 from game.character import *
 from game.characterManager import *
-from game.map.gameMap import *
+from game.tileEngine.map.gameMap import *
 
 
 class ControlManager(object):
@@ -35,6 +35,9 @@ class ControlManager(object):
                 
             elif event.key == pygame.K_o:
                 print gameClient.clock.get_fps()
+
+            elif event.key == pygame.K_p:
+                print gameClient.camera.centerOnPoint(0,0)
                 
             elif event.key == pygame.K_w:
                 gameClient.controlManager.up = True

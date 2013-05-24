@@ -14,6 +14,4 @@ class CharacterManager(object):
         self.gameClient = gameClient
         
     def blitPlayer(self, gameClient):
-    	self.gameClient.gameMap.spriteLayer.blitSprite(self.player)
-        self.gameClient.gameMap.blitSpriteLayer()
-        #gameClient.gameMap.spriteLayer.blitSprite(self.player)
+        self.gameClient.gameMap.spriteLayer.blitSprite(self.player)

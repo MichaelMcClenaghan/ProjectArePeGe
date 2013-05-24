@@ -33,21 +33,21 @@ class Character(object):
     
     def move(self, gameClient, direction):
         if direction == RIGHT:
-            self.xPos += 3
+            self.xPos += (160 * gameClient.timer.get_frame_duration())
         elif direction == LEFT:
-            self.xPos -= 3
+            self.xPos -= (160 * gameClient.timer.get_frame_duration())
         elif direction == UP:
-            self.yPos -= 3
+            self.yPos -= (160 * gameClient.timer.get_frame_duration())
         elif direction == DOWN:
-            self.yPos += 3
+            self.yPos += (160 * gameClient.timer.get_frame_duration())
         if self.xPos < 0:
             self.xPos = 0
         if self.yPos < 0:
             self.yPos = 0
-        if self.xPos > gameClient.viewManager.getWidth()-32:
-            self.xPos = gameClient.viewManager.getWidth()-32
-        if self.yPos > gameClient.viewManager.getHeight()-64:
-            self.yPos = gameClient.viewManager.getHeight()-64
+        if self.xPos > gameClient.gameMap.getWidthInPixels()-32:
+            self.xPos = gameClient.gameMap.getWidthInPixels()-32
+        if self.yPos > gameClient.gameMap.getHeightInPixels()-64:
+            self.yPos = gameClient.gameMap.getHeightInPixels()-64
         self.rect = Character.doRect(self, self.xPos, self.yPos, 32, 64)
     
 class Player(Character):
@@ -65,7 +65,7 @@ class Player(Character):
         self.level = 1
         self.experience = 0
         
-        self.spriteFilename = 'data/sprites/char.bmp'
+        self.spriteFilename = 'game/data/sprites/char.bmp'
                 
         self.sprite = pygame.image.load(self.spriteFilename).convert()
         
